@@ -4,6 +4,7 @@
 <img src='https://img.shields.io/github/license/2239559319/courseDownload.svg?style=flat'>
 <img src='https://img.shields.io/badge/python-3.0%2B-blue.svg'>
 <img src='https://img.shields.io/badge/python-3.6-blue.svg'>
+<img src='https://img.shields.io/pypi/dm/scuCourseDownloader.svg?colorB=blue&style=flat'>
 </p>
 
 -------------
@@ -22,7 +23,7 @@
  ---------
 <img src="https://pypi.org//static/images/logo-small.6eef541e.svg">
 
-# 开发者版本scuCourseDownloader已经上传至pypi，[进入pypi页面][1]
+## 开发者版本scuCourseDownloader已经上传至pypi，[进入pypi页面][1]
 
 
   [1]: https://pypi.org/project/scuCourseDownloader/
