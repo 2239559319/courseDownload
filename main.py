@@ -27,7 +27,7 @@ class Download(object):
 
         return collogeDic
 
-    def query(self,kkxs, terms="2018-2019-2-1"):
+    def query(self,kkxs, terms="2019-2020-1-1"):
         '''
         :param kkxs:学院编号
         :param terms: 学期号，默认2018-2019-2-1,terms格式为2018-2019-2-1
