@@ -10,24 +10,24 @@ class Download(object):
         获取学院字典
         :return: 学院字典
         '''
-        collogeDic={}
+        collogeDic = {}
         #发送请求抓取学院信息
-        url='http://zhjwjs.scu.edu.cn/teacher/personalSenate/giveLessonInfo/thisSemesterClassSchedule/indexPublic'
+        url = 'http://zhjwjs.scu.edu.cn/teacher/personalSenate/giveLessonInfo/thisSemesterClassSchedule/indexPublic'
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
         }
-        r=requests.get(url=url,headers=headers)
+        r=requests.get(url = url, headers = headers)
 
-        html=etree.HTML(r.text)
-        collogeName=html.xpath("//select[@id='kkxs']//option/text()")[1:]
-        collogeId=html.xpath("//select[@id='kkxs']//option/@value")[1:]
+        html = etree.HTML(r.text)
+        collogeName = html.xpath("//select[@id='kkxs']//option/text()")[1:]
+        collogeId = html.xpath("//select[@id='kkxs']//option/@value")[1:]
 
         for i in range(len(collogeId)):
-            collogeDic[collogeId[i]]=collogeName[i]
+            collogeDic[collogeId[i]] = collogeName[i]
 
         return collogeDic
 
-    def query(self,kkxs, terms="2019-2020-1-1"):
+    def query(self, kkxs, terms="2019-2020-1-1"):
         '''
         :param kkxs:学院编号
         :param terms: 学期号，默认2018-2019-2-1,terms格式为2018-2019-2-1
@@ -55,7 +55,7 @@ class Download(object):
             "pageSize": "30",  # 每页的课程数
             "kclb": ""  # 课程类别
         }
-        r = requests.post(url=url, data=postdata, headers=headers)
+        r = requests.post(url = url, data = postdata, headers = headers)
         m = r.json()["list"]
         #继续下一页请求直到完成
         totalcourse = m["pageContext"]["totalCount"]  # 总课数
