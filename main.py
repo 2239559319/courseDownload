@@ -27,7 +27,7 @@ class Download(object):
 
         return collogeDic
 
-    def query(self, kkxs, terms="2019-2020-1-1"):
+    def query(self, kkxs, terms="2019-2020-2-1"):
         '''
         :param kkxs:学院编号
         :param terms: 学期号，默认2018-2019-2-1,terms格式为2018-2019-2-1
@@ -82,6 +82,7 @@ class Download(object):
                    "课序号",
                    "课程名",
                    "学分",
+                   "考试类型",
                    "开课院系",
                    "上课教师",
                    "选课限制",
@@ -101,6 +102,7 @@ class Download(object):
                 kxh = each_course['kxh']  # 课序号
                 kcm = each_course['kcm']  # 课程名
                 xf = each_course['xf']  # 学分
+                kslxmc = each_course['kslxmc']  #考试类型
                 kkxsjc = each_course['kkxsjc']  # 开课院系
                 skjs = each_course['skjs']  # 上课教师
                 xkxzsm = each_course['xkxzsm'].strip()  # 选课限制说明
@@ -113,7 +115,7 @@ class Download(object):
                     jieci = str(each_course['skjc']) + "-" + str(each_course['skjc'] + each_course['cxjc'] - 1)  # 上课节次
                 else:
                     jieci = None
-                ws.append([kch, kxh, kcm, xf, kkxsjc, skjs, xkxzsm, kkxqm, jash, skxq, zcsm, jxlm, jieci])
+                ws.append([kch, kxh, kcm, xf, kslxmc, kkxsjc, skjs, xkxzsm, kkxqm, jash, skxq, zcsm, jxlm, jieci])
             print("%s数据已完成" % collogeDic[colloge_id])
 
         wb.save('course.xlsx')      #保存
