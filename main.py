@@ -96,7 +96,7 @@ class Download(object):
         collogeDic = self.getCollogeDic()           #获取学院信息
 
         for colloge_id in collogeDic:       #循环遍历填充信息
-            response_course = self.query(colloge_id)
+            response_course = self.query(colloge_id, terms='2020-2021-1-1')
             for each_course in response_course:
                 kch = each_course['kch']  # 课程号
                 kxh = each_course['kxh']  # 课序号
